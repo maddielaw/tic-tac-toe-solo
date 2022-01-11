@@ -1,6 +1,6 @@
 
 * {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   padding: 0px;
   margin: 0px;
 }
@@ -24,6 +24,18 @@ main {
   align-items: center;
   justify-content: space-around;
   width: 50%;
+  background-color: #723D46;
+}
+
+.main-header {
+  color: #FFE1A8;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.main-player-turn-header {
+  color: #FFE1A8;
+  font-weight: bold;
 }
 
 /* ~~~~~ RULES FOR LEFT AND RIGHT NAVS ~~~~~~~ */
@@ -35,12 +47,23 @@ main {
   justify-content: space-around;
   align-items: center;
   width: 25%;
+  background-color: #C9CBA3;
 }
 
 .left-player-token,
 .right-player-token {
   width: 200px;
   height: 200px;
+  background-color: #472D30;
+  border: 2px solid #723D46;
+  border-radius: 15px;
+}
+
+.left-player-wins,
+.right-player-wins {
+  color: #472D30;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 /* ~~~~~ RULES FOR GAME BOARD ~~~~~~~ */
@@ -48,8 +71,10 @@ main {
 .game-board-container {
   display: flex;
   flex-wrap: wrap;
-  width: 460px;
-  height: 460px;
+  width: 454px;
+  height: 454px;
+  background-color: #E26D5C;
+  border-radius: 15px;
 }
 
 .game-board-boxes {
@@ -58,6 +83,29 @@ main {
   height: 150px;
   width: 150px;
 }
+
+#game-board-0A,
+#game-board-3A,
+#game-board-6A {
+  border-right: 2px solid #FFE1A8;
+}
+
+#game-board-0A,
+#game-board-3A,
+#game-board-1B,
+#game-board-4B,
+#game-board-2C,
+#game-board-5C {
+  border-bottom: 2px solid #FFE1A8;
+}
+
+#game-board-2C,
+#game-board-5C,
+#game-board-8C {
+  border-left: 2px solid #FFE1A8;
+}
+
+
 
 
 
