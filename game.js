@@ -39,8 +39,8 @@ class Game {
     // WORKING IN TERMINAL
     // will check if the game board is full
   };
-  checkForWin() {
-    var board = currentGame.board;
+  checkForWinOrDraw() {
+    var board = this.board;
     var gameWon = false;
     if (board[0] === board[1] && board[0] === board[2]) {
         gameWon = true;
@@ -66,17 +66,12 @@ class Game {
     } else if (board[2] === board[4] && board[2] === board[6]) {
         gameWon = true;
         return "It's a win!"
-    }
-    this.checkForDraw();
-    setTimeout(resetGameBoard(), 10000)
-    };
-  checkForDraw() {
-    if (this.checkForFull() === true && this.checkForWin() === false) {
+    } else if (!board.includes("")) {
       return "It's a draw!"
     }
-    // if checkForFull is true and checkForWin is false, then we can call a draw
-    // call resetGameBoard()
-  }
+    setTimeout(resetGameBoard(), 10000)
+    // WORKS IN TERMINAL
+    };
   resetGameBoard() {
     this.board = ["", "", "",
                   "", "", "",
