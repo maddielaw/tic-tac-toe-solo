@@ -1,4 +1,3 @@
-var Player = require('./player');
 
 class Game {
   constructor() {
@@ -7,7 +6,7 @@ class Game {
     this.board = ["", "", "",
                   "", "", "",
                   "", "", ""];
-    this.playerTurn = player1;
+    this.playerTurn = this.player1;
   };
   checkPlayerTurn() {
     // code to check whether it's player 1 or 2's turn
@@ -34,6 +33,8 @@ class Game {
       }
       if (counter === 9) {
         return true
+      } else {
+        return false
       }
     }
     // will check if the game board is full
@@ -77,7 +78,9 @@ class Game {
   };
 }
 
-// var currentGame = new Game()
+
+
+
 
 
 /* WIN CONDTIONS???
