@@ -6,14 +6,20 @@ class Game {
     this.board = ["", "", "",
                   "", "", "",
                   "", "", ""];
-    this.playerTurn = this.player1;
+    this.currentPlayer = this.player1;
+    this.turn = 0;
   };
   checkPlayerTurn() {
-    if (this.playerTurn === this.player1) {
-      this.playerTurn = this.player2
-    } else if (this.playerTurn === this.player2) {
-      this.playerTurn = this.player1
+    if (this.turn = 0) {
+      this.currentPlayer = this.player1
+    } else if (this.turn = 1) {
+      this.currentPlayer = this.player2
     }
+    // if (this.currentPlayer === this.player1) {
+    //   this.currentPlayer = this.player2
+    // } else if (this.currentPlayer === this.player2) {
+    //   this.currentPlayer = this.player1
+    // }
     // WORKING IN TERMINAL
   };
   playTurn() {
@@ -28,7 +34,6 @@ class Game {
       return true
     }
     // WORKING IN TERMINAL
-    // will check whether the game board is empty
   };
   checkForFull() {
     if (this.board.includes("")) {
@@ -37,39 +42,46 @@ class Game {
         return true
       }
     // WORKING IN TERMINAL
-    // will check if the game board is full
   };
+  checkWinningPlayer() {
+    if (this.turn === 0) {
+      return "player1 wins!"
+    } else if (this.turn === 1) {
+      return "player2 wins!"
+    }
+    // code to check who most recently played
+    // maybe an if statment -> if this.turn = 0, return player 1, else if this.turn = 1 return player 2
+  }
   checkForWinOrDraw() {
     var board = this.board;
-    var gameWon = false;
     if (board[0] === board[1] && board[0] === board[2]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[3] === board[4] && board[3] === board[5]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[6] === board[7] && board[6] === board[8]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[0] === board[3] && board[0] === board[6]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[1] === board[4] && board[1] === board[7]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[2] === board[5] && board[2] === board[8]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[0] === board[4] && board[0] === board[8]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (board[2] === board[4] && board[2] === board[6]) {
-        gameWon = true;
-        return "It's a win!"
+        return this.checkWinningPlayer()
+        // return "It's a win!"
     } else if (!board.includes("")) {
-      return "It's a draw!"
+        return "It's a draw!"
     }
-    setTimeout(resetGameBoard(), 10000)
+    // setTimeout(resetGameBoard(), 10000)
     // WORKS IN TERMINAL
     };
   resetGameBoard() {
@@ -85,8 +97,10 @@ class Game {
 
 
 
-/* WIN CONDTIONS???
+/* 
 
+
+WIN CONDTIONS
 var winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -99,26 +113,13 @@ var winningCombos = [
 ];
 
 
-function checkForWin() {
-  var board = currentGame.board;
-  if (board[0] === board[1] && board[0] === board[2]) {
-    return "You won!"
-  } else if (board[3] === board[4] && board[3] === board[5]) {
-    return "You won!"
-  } else if (board[6] === board[7] && board[6] === board[8]) {
-    return "You won!"
-  } else if (board[0] === board[3] && board[0] === board[6]) {
-    return "You won!"
-  } else if (board[1] === board[4] && board[1] === board[7]) {
-    return "You won!"
-  } else if (board[2] === board[5] && board[2] === board[8]) {
-    return "You won!"
-  } else if (board[0] === board[4] && board[0] === board[8]) {
-    return "You won!"
-  } else if (board[2] === board[4] && board[2] === board[6]) {
-    return "You won!"
-  }
-} 
+
+When player takes a turn:
+- should know which player's turn it is
+- Should update the board with their selection (takes in argument of X or O & location?)
+- After each turn should check for win or draw condition
+- 
+
 
 
 
