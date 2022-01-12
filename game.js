@@ -7,9 +7,12 @@ class Game {
                   "", "", "",
                   "", "", ""];
     this.currentPlayer = this.player1;
+    this.previousPlayer = null;
+    this.winnerOfLastGame = null;
   };
   playTurn(token, position) {
     this.board[position] = token
+    this.switchPlayers();
     // WORKING IN TERMINAL
   };
   checkForEmpty() {
@@ -26,24 +29,32 @@ class Game {
       } else {
         return true
       }
-    // WORKING IN TERMINAL
+    // WORKS IN TERMINAL
   };
   updatePlayerWins() {
-    this.currentPlayer.wins ++
+    this.previousPlayer.wins ++
+  };
+  switchPlayers() {
+    if (this.currentPlayer === this.player1) {
+      this.previousPlayer = this.player1;
+      this.currentPlayer = this.player2;
+    } else if (this.currentPlayer === this.player2) {
+      this.previousPlayer = this.player2;
+      this.currentPlayer = this.player1;
+    }
   }
   checkWinningPlayer() {
-    if (this.currentPlayer === this.player1) {
+    if (this.previousPlayer === this.player1) {
       this.updatePlayerWins();
-      this.currentPlayer = this.player2;
-      return "player1 wins!"
-    } else if (this.currentPlayer === this.player2) {
+      this.winnerOfLastGame = this.player1;
+      return "player1 -X wins!"
+    } else if (this.previousPlayer === this.player2) {
       this.updatePlayerWins();
-      this.currentPlayer = this.player1;
-      return "player2 wins!"
+      this.winnerOfLastGame = this.player2;
+      return "player2 -O wins!"
     }
-    // code to check who most recently played
-    // maybe an if statment -> if this.turn = 0, return player 1, else if this.turn = 1 return player 2
-  }
+    // WORKS IN TERMINAL
+  };
   checkForWinOrDraw() {
     var board = this.board;
     if (board[0] === board[1] && board[0] === board[2]) {
@@ -69,6 +80,7 @@ class Game {
     // WORKS IN TERMINAL
     };
   resetGameBoard() {
+    this.currentPlayer = this.winnerOfLastGame;
     this.board = ["", "", "",
                   "", "", "",
                   "", "", ""];
@@ -82,8 +94,6 @@ class Game {
 
 
 /* 
-
-
 DRAW CONDITION EXAMPLE
 "X", "O", "O", "O", "X", "X", "X", "O", "O"
 
@@ -100,18 +110,16 @@ var winningCombos = [
   [2, 4, 6]
 ];
 
-
+** need way to automate the token inputs -- needs to be associated with the player's token who is current player
 
 When player takes a turn:
-- should know which player's turn it is (can do manually for now)
+- default start w/ player1 on page load
+- should know which player's turn it is based on who won last game (can do manually for now)
 - Should update the board with their selection (takes in argument of X or O & location?)
 - After each turn should run checkForWinOrDraw
-- should update this.turn & this.currentPlayer (currently doing that in checkWinningPlayer)
+- should update this.turn & this.currentPlayer (currently doing that in checkWinningPlayer being invoked in checkForWin)
 - 
 
-playTurn(token, position) {
-  this.board[position] = token
-}
 
 
 
