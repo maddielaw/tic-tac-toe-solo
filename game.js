@@ -71,6 +71,9 @@ class Game {
 
 
 /* 
+
+~~~~ TO DO: need to put resetGameBoard on a timer
+
 DRAW CONDITION EXAMPLE
 
 currentGame.playTurn(0)
@@ -103,10 +106,7 @@ currentGame.playTurn(6)
 currentGame.playTurn(2)
 
 
-
-
 WIN CONDTIONS
-var winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
   [6, 7, 8],
@@ -115,45 +115,6 @@ var winningCombos = [
   [2, 5, 8],
   [0, 4, 8],
   [2, 4, 6]
-];
-
-
-checkForWinOrDraw() {
-    console.log('check for win or draw')
-    var board = this.board;
-    var gameWon = false;
-    if (board[0] === board[1] && board[0] === board[2]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (board[3] === board[4] && board[3] === board[5]) {
-        gameWon = true;
-          this.checkWinningPlayer()
-    } else if (board[6] === board[7] && board[6] === board[8]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (board[0] === board[3] && board[0] === board[6]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (board[1] === board[4] && board[1] === board[7]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (board[2] === board[5] && board[2] === board[8]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (board[0] === board[4] && board[0] === board[8]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (board[2] === board[4] && board[2] === board[6]) {
-        gameWon = true;
-        return this.checkWinningPlayer()
-    } else if (!board.includes("")) {
-        this.resetForDraw()
-        return "It's a draw!"
-    }
-
-  };
-
-
 
 
   checkForEmpty() {
