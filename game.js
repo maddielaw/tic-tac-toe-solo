@@ -11,25 +11,11 @@ class Game {
     this.winnerOfLastGame = null;
   };
   playTurn(position) {
-    this.board[position] = this.currentPlayer.token
-    this.switchPlayers();
-    // WORKING IN TERMINAL
-  };
-  checkForEmpty() {
-    if (this.board.includes("X") || this.board.includes("O")) {
-      return false
-    } else {
-      return true
+    if (this.board[position] === "") {
+      this.board[position] = this.currentPlayer.token
+      this.checkForWinOrDraw();
+      this.switchPlayers();
     }
-    // WORKING IN TERMINAL
-  };
-  checkForFull() {
-    if (this.board.includes("")) {
-      return false
-      } else {
-        return true
-      }
-    // WORKS IN TERMINAL
   };
   updatePlayerWins() {
     this.previousPlayer.wins ++
@@ -42,7 +28,8 @@ class Game {
       this.previousPlayer = this.player2;
       this.currentPlayer = this.player1;
     }
-  }
+  };
+  // checking which player won, updating their wins, setting them as the previous winner & resetting the board
   checkWinningPlayer() {
     if (this.previousPlayer === this.player1) {
       this.updatePlayerWins();
@@ -55,32 +42,22 @@ class Game {
       this.resetGameBoard();
       return "player2 -O wins!"
     }
-    // WORKS IN TERMINAL
   };
+  // checking for win or draw conditions and then invoking checkWinningPlayer
   checkForWinOrDraw() {
-    var board = this.board;
-    if (board[0] === board[1] && board[0] === board[2]) {
-        return this.checkWinningPlayer()
-    } else if (board[3] === board[4] && board[3] === board[5]) {
-        return this.checkWinningPlayer()
-    } else if (board[6] === board[7] && board[6] === board[8]) {
-        return this.checkWinningPlayer()
-    } else if (board[0] === board[3] && board[0] === board[6]) {
-        return this.checkWinningPlayer()
-    } else if (board[1] === board[4] && board[1] === board[7]) {
-        return this.checkWinningPlayer()
-    } else if (board[2] === board[5] && board[2] === board[8]) {
-        return this.checkWinningPlayer()
-    } else if (board[0] === board[4] && board[0] === board[8]) {
-        return this.checkWinningPlayer()
-    } else if (board[2] === board[4] && board[2] === board[6]) {
-        return this.checkWinningPlayer()
-    } else if (!board.includes("")) {
-        this.resetForDraw()
-        return "It's a draw!"
+    var winningCombos = [[0, 1, 2],[3, 4, 5],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8],[0, 4, 8],[2, 4, 6]];
+    for (var i = 0; i < 8; i ++) {
+      var win = winningCombos[i];
+      if (this.board[win[0]] === this.board[win[1]] && this.board[win[0]] === this.board[win[2]] && 
+          this.board[win[0]] != "" && this.board[win[1]] != "" && this.board[win[2]] != "") {
+            this.checkWinningPlayer();
+        }
+      }
+    if (!this.board.includes("")) {
+      this.resetForDraw();
     }
-        // WORKS IN TERMINAL
-    };
+    return "No win yet! Keep playing!"
+  };
   resetForDraw() {
     this.currentPlayer = this.previousPlayer;
     this.board = ["", "", "",
@@ -90,11 +67,10 @@ class Game {
   resetGameBoard() {
     this.currentPlayer = this.winnerOfLastGame;
     this.board = ["", "", "",
-                  "", "", "",
-                  "", "", ""];
+                    "", "", "",
+                    "", "", ""];
   };
-  // WORKS IN TERMINAL
-}
+};
 
 
 
@@ -118,7 +94,66 @@ var winningCombos = [
   [2, 4, 6]
 ];
 
-- Need to create a reset function for draws that just resets the board.
+
+checkForWinOrDraw() {
+    console.log('check for win or draw')
+    var board = this.board;
+    var gameWon = false;
+    if (board[0] === board[1] && board[0] === board[2]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (board[3] === board[4] && board[3] === board[5]) {
+        gameWon = true;
+          this.checkWinningPlayer()
+    } else if (board[6] === board[7] && board[6] === board[8]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (board[0] === board[3] && board[0] === board[6]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (board[1] === board[4] && board[1] === board[7]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (board[2] === board[5] && board[2] === board[8]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (board[0] === board[4] && board[0] === board[8]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (board[2] === board[4] && board[2] === board[6]) {
+        gameWon = true;
+        return this.checkWinningPlayer()
+    } else if (!board.includes("")) {
+        this.resetForDraw()
+        return "It's a draw!"
+    }
+
+  };
+
+
+
+
+  checkForEmpty() {
+    if (this.board.includes("X") || this.board.includes("O")) {
+      return false
+    } else {
+      return true
+    }
+  };
+  checkForFull() {
+    if (this.board.includes("")) {
+      return false
+      } else {
+        return true
+      }
+  };
+
+
+
+-> Need to find way to automatically invoke the checkForWinOrDraw after each turn without
+resetting the board
+
+
 
 
 */
