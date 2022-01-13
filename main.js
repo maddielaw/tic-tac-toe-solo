@@ -26,16 +26,40 @@ function loadNewGame() {
 }
 
 
-// will run addToken, updatePlayerBanner, updatePlayerWins to complete a player turn
-// should also be able to update currentGame.board
+/* 
+1. will run addToken & updatePlayerBanner to complete a player turn
+2. need to call currentGame.playTurn() which will only allow click on empty
+cell, and will update the board & then run check for winner
+3. the argument 
+*/
 function takeTurn(e) {
+  currentGame.playTurn(e.target.id);
+  createPlayerToken(e.target.id)
+  updatePlayerBanner();
+  updatePlayerWins();
+  console.log(currentGame.board)
   console.log(e.target)
 }
 
 
-// will actually update the innerHTML to add the correct player icon to board
-function addToken() {
 
+
+
+
+
+// will actually update the innerHTML to add the correct player icon to board
+function createPlayerToken(e) {
+  if (currentGame.currentPlayer === currentGame.player1) {
+    gameBoard.innerHTML = `
+    <div class="game-board-boxes" id="${e.target.id}">
+    <i class="fas fa-campground"></i>
+    </div>`
+  } else if (currentGame.currentPlayer === currentGame.player2) {
+    gameBoard.innerHTML = `
+    <div class="game-board-boxes" id="${e.target.id}">
+    <i class="fas fa-tree"></i>
+    </div>`
+  }
 }
 
 
@@ -48,10 +72,14 @@ function updatePlayerBanner() {
   }
 };
 
-function updatePlayerWins(e) {
-  console.log(e.target)
+// updates the player win count - > will need to go inside function that handles winner/endgame
+function updatePlayerWins() {
   player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
   player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
+}
+
+// needs to call currentGame.checkForWinOrDraw()
+function handleWinOrDraw() {
 }
 
 
@@ -64,12 +92,7 @@ the innerText of the div to match the token of the currentPlayer
 index to match the visual
 
 
-
-
-function addToken() {
-  if (e.target.id === 
-}
-
+currentGame.playTurn(e.target)
 
 
 
