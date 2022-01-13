@@ -84,7 +84,7 @@ main {
   flex-wrap: wrap;
   width: 454px;
   height: 454px;
-  background-color: #E26D5C;
+  background-color: #723D46;
   border-radius: 15px;
 }
 
@@ -92,11 +92,14 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
-  width: 150px;
+  height: 149px;
+  width: 149px;
+  background-color: #E26D5C;
+  border: 1px solid #FFE1A8;
+  border-radius: 15px;
 }
 
-#game-board-0A,
+/* #game-board-0,
 #game-board-3A,
 #game-board-6A {
   border-right: 2px solid #FFE1A8;
@@ -115,7 +118,7 @@ main {
 #game-board-5C,
 #game-board-8C {
   border-left: 2px solid #FFE1A8;
-}
+} */
 
 
 
