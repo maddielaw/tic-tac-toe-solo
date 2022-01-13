@@ -14,11 +14,7 @@ class Game {
     if (this.board[position] === "") {
       this.board[position] = this.currentPlayer.token
       this.checkForWinOrDraw();
-      this.switchPlayers();
     }
-  };
-  updatePlayerWins() {
-    this.previousPlayer.wins ++
   };
   switchPlayers() {
     if (this.currentPlayer === this.player1) {
@@ -29,43 +25,40 @@ class Game {
       this.currentPlayer = this.player1;
     }
   };
-  // checking which player won, updating their wins, setting them as the previous winner & resetting the board
   checkWinningPlayer() {
-    if (this.previousPlayer === this.player1) {
-      this.updatePlayerWins();
+    if (this.currentPlayer === this.player1) {
+      this.currentPlayer.wins ++;
       this.winnerOfLastGame = this.player1;
       this.resetGameBoard();
+      console.log('player1 -X wins')
       return "player1 -X wins!"
-    } else if (this.previousPlayer === this.player2) {
-      this.updatePlayerWins();
+    } else if (this.currentPlayer === this.player2) {
+      this.currentPlayer.wins ++;
       this.winnerOfLastGame = this.player2;
       this.resetGameBoard();
+      console.log('player2 -O wins')
       return "player2 -O wins!"
     }
   };
-  // checking for win or draw conditions and then invoking checkWinningPlayer
   checkForWinOrDraw() {
     var winningCombos = [[0, 1, 2],[3, 4, 5],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8],[0, 4, 8],[2, 4, 6]];
     for (var i = 0; i < 8; i ++) {
       var win = winningCombos[i];
       if (this.board[win[0]] === this.board[win[1]] && this.board[win[0]] === this.board[win[2]] && 
           this.board[win[0]] != "" && this.board[win[1]] != "" && this.board[win[2]] != "") {
-            this.checkWinningPlayer();
+            return this.checkWinningPlayer();
         }
       }
     if (!this.board.includes("")) {
-      this.resetForDraw();
+      console.log('Draw!')
+      this.resetGameBoard();
+    } else {
+      this.switchPlayers();
+      return "No win yet! Keep playing!"
     }
-    return "No win yet! Keep playing!"
-  };
-  resetForDraw() {
-    this.currentPlayer = this.previousPlayer;
-    this.board = ["", "", "",
-                  "", "", "",
-                  "", "", ""];
   };
   resetGameBoard() {
-    this.currentPlayer = this.winnerOfLastGame;
+    this.switchPlayers();
     this.board = ["", "", "",
                     "", "", "",
                     "", "", ""];
@@ -79,7 +72,37 @@ class Game {
 
 /* 
 DRAW CONDITION EXAMPLE
-"X", "O", "O", "O", "X", "X", "X", "O", "O"
+
+currentGame.playTurn(0)
+currentGame.playTurn(2)
+currentGame.playTurn(4)
+currentGame.playTurn(8)
+currentGame.playTurn(5)
+currentGame.playTurn(7)
+currentGame.playTurn(6)
+currentGame.playTurn(3)
+currentGame.playTurn(1)
+-> ends with X
+
+
+X WINS EXAMPLE
+
+currentGame.playTurn(0)
+currentGame.playTurn(5)
+currentGame.playTurn(1)
+currentGame.playTurn(8)
+currentGame.playTurn(2)
+
+O WINS EXAMPLE
+
+currentGame.playTurn(5)
+currentGame.playTurn(0)
+currentGame.playTurn(8)
+currentGame.playTurn(1)
+currentGame.playTurn(6)
+currentGame.playTurn(2)
+
+
 
 
 WIN CONDTIONS
@@ -147,13 +170,6 @@ checkForWinOrDraw() {
         return true
       }
   };
-
-
-
--> Need to find way to automatically invoke the checkForWinOrDraw after each turn without
-resetting the board
-
-
 
 
 */
