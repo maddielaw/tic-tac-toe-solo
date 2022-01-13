@@ -48,6 +48,11 @@ function updatePlayerBanner() {
   }
 };
 
+function updatePlayerWins(e) {
+  console.log(e.target)
+  player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
+  player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
+}
 
 
 
