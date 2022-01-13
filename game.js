@@ -76,10 +76,17 @@ class Game {
     } else if (board[2] === board[4] && board[2] === board[6]) {
         return this.checkWinningPlayer()
     } else if (!board.includes("")) {
+        this.resetForDraw()
         return "It's a draw!"
     }
         // WORKS IN TERMINAL
     };
+  resetForDraw() {
+    this.currentPlayer = this.previousPlayer;
+    this.board = ["", "", "",
+                  "", "", "",
+                  "", "", ""];
+  };
   resetGameBoard() {
     this.currentPlayer = this.winnerOfLastGame;
     this.board = ["", "", "",
@@ -111,18 +118,7 @@ var winningCombos = [
   [2, 4, 6]
 ];
 
-
-When player takes a turn:
-- default start w/ player1 on page load
-- should know which player's turn it is based on who won last game (can do manually for now)
-- Should update the board with their selection (takes in argument of X or O & location?)
-- After each turn should run checkForWinOrDraw
-- should update this.turn & this.currentPlayer (currently doing that in checkWinningPlayer being invoked in checkForWin)
-- 
-
-
-
-
+- Need to create a reset function for draws that just resets the board.
 
 
 */
