@@ -47,18 +47,29 @@ main {
   justify-content: space-around;
   align-items: center;
   width: 25%;
-  background-color: #C9CBA3;
+  background: linear-gradient(#C9CBA3, #94af89)
 }
 
-.left-player-token,
-.right-player-token {
+.left-player-token-container,
+.right-player-token-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 200px;
   height: 200px;
+  margin-bottom: 150px;
   background-color: #472D30;
   border: 2px solid #723D46;
   border-radius: 15px;
 }
 
+.fa-tree,
+.fa-campground {
+  font-size: 100px;
+  color: #C9CBA3;
+}
+
+.player-header,
 .left-player-wins,
 .right-player-wins {
   color: #472D30;
