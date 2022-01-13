@@ -10,8 +10,8 @@ class Game {
     this.previousPlayer = null;
     this.winnerOfLastGame = null;
   };
-  playTurn(token, position) {
-    this.board[position] = token
+  playTurn(position) {
+    this.board[position] = this.currentPlayer.token
     this.switchPlayers();
     // WORKING IN TERMINAL
   };
@@ -47,10 +47,12 @@ class Game {
     if (this.previousPlayer === this.player1) {
       this.updatePlayerWins();
       this.winnerOfLastGame = this.player1;
+      this.resetGameBoard();
       return "player1 -X wins!"
     } else if (this.previousPlayer === this.player2) {
       this.updatePlayerWins();
       this.winnerOfLastGame = this.player2;
+      this.resetGameBoard();
       return "player2 -O wins!"
     }
     // WORKS IN TERMINAL
@@ -76,8 +78,7 @@ class Game {
     } else if (!board.includes("")) {
         return "It's a draw!"
     }
-    // setTimeout(resetGameBoard(), 10000)
-    // WORKS IN TERMINAL
+        // WORKS IN TERMINAL
     };
   resetGameBoard() {
     this.currentPlayer = this.winnerOfLastGame;
@@ -110,7 +111,6 @@ var winningCombos = [
   [2, 4, 6]
 ];
 
-** need way to automate the token inputs -- needs to be associated with the player's token who is current player
 
 When player takes a turn:
 - default start w/ player1 on page load
