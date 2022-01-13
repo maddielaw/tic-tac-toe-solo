@@ -90,6 +90,7 @@ main {
 
 .game-board-boxes {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 150px;
   width: 150px;
