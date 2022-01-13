@@ -33,31 +33,41 @@ cell, and will update the board & then run check for winner
 3. the argument 
 */
 function takeTurn(e) {
+  createPlayerToken(e);
   currentGame.playTurn(e.target.id);
-  createPlayerToken(e.target.id)
   updatePlayerBanner();
   updatePlayerWins();
-  console.log(currentGame.board)
-  console.log(e.target)
+  resetBoardView();
 }
 
-
-
-
-
-
+function resetBoardView() {
+  for (var i = 0; i < currentGame.board; i ++) {
+    if (currentGame.board[i] === "") {
+      gameBoard.innerHTML `
+      <div class="game-board-boxes" id="0"></div>
+      <div class="game-board-boxes" id="1"></div>
+      <div class="game-board-boxes" id="2"></div>
+      <div class="game-board-boxes" id="3"></div>
+      <div class="game-board-boxes" id="4"></div>
+      <div class="game-board-boxes" id="5"></div>
+      <div class="game-board-boxes" id="6"></div>
+      <div class="game-board-boxes" id="7"></div>
+      <div class="game-board-boxes" id="8"></div>`
+    }
+  }
+}
 
 // will actually update the innerHTML to add the correct player icon to board
 function createPlayerToken(e) {
   if (currentGame.currentPlayer === currentGame.player1) {
-    gameBoard.innerHTML = `
-    <div class="game-board-boxes" id="${e.target.id}">
-    <i class="fas fa-campground"></i>
+    e.target.innerHTML = `
+    <div class="game-board-boxes" id="${e.target}">
+      <i class="fas fa-campground"></i>
     </div>`
   } else if (currentGame.currentPlayer === currentGame.player2) {
-    gameBoard.innerHTML = `
-    <div class="game-board-boxes" id="${e.target.id}">
-    <i class="fas fa-tree"></i>
+    e.target.innerHTML = `
+    <div class="game-board-boxes" id="${e.target}">
+      <i class="fas fa-tree"></i>
     </div>`
   }
 }
@@ -74,8 +84,13 @@ function updatePlayerBanner() {
 
 // updates the player win count - > will need to go inside function that handles winner/endgame
 function updatePlayerWins() {
-  player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
-  player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
+  if (currentGame.player1.wins === [] || currentGame.player2.wins === []) {
+    player1WinCounter.innerText = "0 wins";
+    player2WinCounter.innerText = "0 wins";
+  } else {
+    player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
+    player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
+  }
 }
 
 // needs to call currentGame.checkForWinOrDraw()
