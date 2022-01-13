@@ -33,13 +33,16 @@ cell, and will update the board & then run check for winner
 3. the argument 
 */
 function takeTurn(e) {
-  createPlayerToken(e);
-  currentGame.playTurn(e.target.id);
-  updatePlayerBanner();
-  updatePlayerWins();
-  resetBoardView();
+  if (currentGame.board[e.target.id] === "") {
+    createPlayerToken(e);
+    currentGame.playTurn(e.target.id);
+    updatePlayerBanner();
+    updatePlayerWins();
+  }
 }
 
+
+// need function that will reset the board view innerHTML after a win or draw
 function resetBoardView() {
   for (var i = 0; i < currentGame.board; i ++) {
     if (currentGame.board[i] === "") {
@@ -84,14 +87,10 @@ function updatePlayerBanner() {
 
 // updates the player win count - > will need to go inside function that handles winner/endgame
 function updatePlayerWins() {
-  if (currentGame.player1.wins === [] || currentGame.player2.wins === []) {
-    player1WinCounter.innerText = "0 wins";
-    player2WinCounter.innerText = "0 wins";
-  } else {
     player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
     player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
   }
-}
+
 
 // needs to call currentGame.checkForWinOrDraw()
 function handleWinOrDraw() {
