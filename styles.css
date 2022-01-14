@@ -27,10 +27,32 @@ main {
   background-color: #723D46;
 }
 
+/* from a minimum width of 600px and bigger
+@media screen and (min-width: 600px) {
+  main {
+    background-color: blue;
+  }
+}
+
+/* from a minimum width of 1024px and bigger
+@media screen and (min-width: 1024px) {
+  main {
+    background-color: orange;
+  }
+} */
+
+
 .main-header {
   color: #FFE1A8;
   font-size: 55px;
   font-weight: bold;
+}
+
+/* for larger laptops */
+@media screen and (max-width: 1199px) {
+  .main-header {
+    font-size: 40px;
+  }
 }
 
 .main-player-turn-header {
