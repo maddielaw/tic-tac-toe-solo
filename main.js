@@ -1,20 +1,20 @@
-/* QUERY SELECTORS GO HERE */
+/* QUERY SELECTORS */
 
 var gameBoard = document.querySelector('.game-board-container');
 var playerTurnHeader = document.querySelector('.main-player-turn-header');
 var player1WinCounter = document.querySelector('.left-player-wins');
 var player2WinCounter = document.querySelector('.right-player-wins');
 
-/* EVENT LISTENERS GO HERE */
+/* EVENT LISTENERS */
 
 window.addEventListener('load', loadNewGame);
 gameBoard.addEventListener('click', takeTurn);
 
-/* GLOBAL VARIABLE GOES HERE */
+/* GLOBAL VARIABLE */
 
 var currentGame;
 
-/* EVENT HANDLERS & FUNCTIONS GO HERE */
+/* EVENT HANDLERS & FUNCTIONS */
 
 function loadNewGame() {
   currentGame = new Game();
@@ -36,7 +36,7 @@ function takeTurn(e) {
 function handleBoardReset() {
   if (currentGame.gameWon || currentGame.gameCompleted) {
     gameBoard.removeEventListener('click', takeTurn)
-    setTimeout(resetBoardView, 5000);
+    setTimeout(resetBoardView, 4000);
   };
 };
 
@@ -109,23 +109,3 @@ function addBannerAnimation() {
 function removeBannerAnimation() {
   playerTurnHeader.classList.remove('turn-animation')
 };
-
-
-/* 
-Priorities:
-- bug squashing!
-- responsive design across mobile, tablet, and desktop
-   > desktop: 1059px - 1440px -> looks good!
-
-   > BREAKS at 1199px (need to make header smaller font)
-   > BREAKS at 1050px (need to make header two lines)
-
-   > laptop: 1024px -> need to make header two lines
-   > tablet: 768px -> need to make header two lines
-
-   > BREAKS at 550px -> need to push the board up, weird spacing between main elements
-   > iPhone: 375px -> ""
-
-- local storage
-
-*/
