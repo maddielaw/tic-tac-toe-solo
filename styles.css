@@ -27,21 +27,6 @@ main {
   background-color: #723D46;
 }
 
-/* from a minimum width of 600px and bigger
-@media screen and (min-width: 600px) {
-  main {
-    background-color: blue;
-  }
-}
-
-/* from a minimum width of 1024px and bigger
-@media screen and (min-width: 1024px) {
-  main {
-    background-color: orange;
-  }
-} */
-
-
 .main-header {
   color: #FFE1A8;
   font-size: 55px;
@@ -55,6 +40,13 @@ main {
   }
 }
 
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .main-header {
+    font-size: 30px;
+  }
+}
+
 .main-player-turn-header {
   color: #FFE1A8;
   font-size: 30px;
@@ -63,6 +55,13 @@ main {
 
 .turn-animation {
     transform: scale(1.3);
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .main-player-turn-header {
+    font-size: 20px;
+  }
 }
 
 /* ~~~~~ RULES FOR LEFT AND RIGHT NAVS ~~~~~~~ */
@@ -90,10 +89,27 @@ main {
   border-radius: 15px;
 }
 
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .left-player-token-container,
+  .right-player-token-container {
+    width: 130px;
+    height: 130px;
+  }
+}
+
 .fa-tree,
 .fa-campground {
   font-size: 100px;
   color: #C9CBA3;
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .fa-tree,
+  .fa-campground {
+    font-size: 70px;
+  }
 }
 
 .player-header,
@@ -101,6 +117,15 @@ main {
 .right-player-wins {
   color: #472D30;
   font-size: 30px;
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .player-header,
+  .left-player-wins,
+  .right-player-wins {
+    font-size: 25px;
+  }
 }
 
 /* ~~~~~ RULES FOR GAME BOARD ~~~~~~~ */
@@ -114,6 +139,14 @@ main {
   border-radius: 15px;
 }
 
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .game-board-container {
+    width: 354px;
+    height: 354px;
+  }
+}
+
 .game-board-boxes {
   display: flex;
   justify-content: center;
@@ -123,6 +156,14 @@ main {
   background-color: #E26D5C;
   border: 1px solid #FFE1A8;
   border-radius: 15px;
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .game-board-boxes {
+    width: 116px;
+    height: 116px;
+  }
 }
 
 
