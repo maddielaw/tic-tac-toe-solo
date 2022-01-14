@@ -18,6 +18,13 @@ body {
   font-family: 'Quicksand';
 }
 
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  body {
+    flex-direction: column;
+  }
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -27,13 +34,28 @@ main {
   background-color: #723D46;
 }
 
+/* for tablets */
+@media screen and (max-width: 728px) {
+  main {
+    width: 70%;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  main {
+    width: 100%;
+    height: 80%;
+  }
+}
+
 .main-header {
   color: #FFE1A8;
   font-size: 55px;
   font-weight: bold;
 }
 
-/* for larger laptops */
+/* for laptops & larger laptops */
 @media screen and (max-width: 1199px) {
   .main-header {
     font-size: 40px;
@@ -76,6 +98,16 @@ main {
   background: linear-gradient(#C9CBA3, #94af89)
 }
 
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .left-player-nav,
+  .right-player-nav {
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+  }
+}
+
 .left-player-token-container,
 .right-player-token-container {
   display: flex;
@@ -98,6 +130,24 @@ main {
   }
 }
 
+/* for tablets */
+@media screen and (max-width: 728px) {
+  .left-player-token-container,
+  .right-player-token-container {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .left-player-token-container,
+  .right-player-token-container {
+    margin-bottom: 0px;
+    height: 70%;
+  }
+}
+
 .fa-tree,
 .fa-campground {
   font-size: 100px;
@@ -109,6 +159,14 @@ main {
   .fa-tree,
   .fa-campground {
     font-size: 70px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .fa-tree,
+  .fa-campground {
+    font-size: 60px;
   }
 }
 
@@ -147,6 +205,14 @@ main {
   }
 }
 
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .game-board-container {
+    width: 340px;
+    height: 340px;
+  }
+}
+
 .game-board-boxes {
   display: flex;
   justify-content: center;
@@ -163,6 +229,14 @@ main {
   .game-board-boxes {
     width: 116px;
     height: 116px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .game-board-boxes {
+    width: 111px;
+    height: 111px;
   }
 }
 
