@@ -24,6 +24,7 @@ function loadNewGame() {
 }
 
 function takeTurn(e) {
+  enableGameBoard()
   if (currentGame.board[e.target.id] === "") {
     createPlayerToken(e);
     currentGame.playTurn(e.target.id);
@@ -32,11 +33,17 @@ function takeTurn(e) {
   };
   alertWinner();
   alertDraw();
-  setTimeout(resetBoardView, 10000)
+  handleBoardReset();
+}
+
+function handleBoardReset() {
+  if (currentGame.gameWon || currentGame.gameCompleted) {
+    gameBoard.removeEventListener('click', takeTurn)
+    setTimeout(resetBoardView, 6000);
+  }
 }
 
 function resetBoardView() {
-    if (currentGame.gameWon || currentGame.gameCompleted) {
       gameBoard.innerHTML = `
       <div class="game-board-boxes" id="0"></div>
       <div class="game-board-boxes" id="1"></div>
@@ -47,8 +54,8 @@ function resetBoardView() {
       <div class="game-board-boxes" id="6"></div>
       <div class="game-board-boxes" id="7"></div>
       <div class="game-board-boxes" id="8"></div>`
-    }
     updatePlayerBanner();
+    gameBoard.addEventListener('click', takeTurn);
     currentGame.gameCompleted = false;
     currentGame.gameWon = false;
 }
@@ -80,19 +87,23 @@ function updatePlayerWins() {
     player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
 }
 
-// needs to update top banner innerText to be winner message for a period
 function alertWinner() {
   if (currentGame.gameWon) {
     playerTurnHeader.innerText = `woo! ${currentGame.winnerOfLastGame.name} won!`
   } 
 }
 
-//needs to update top banner innerText to show draw message
 function alertDraw() {
   if (currentGame.gameCompleted) {
     playerTurnHeader.innerText = `bummer! looks like a draw!`
   }
 }
+
+function enableGameBoard() {
+  gameBoard.disabled = false;
+}
+
+
 
 
 /* 
