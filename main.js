@@ -12,7 +12,7 @@ window.addEventListener('load', loadNewGame);
 gameBoard.addEventListener('click', takeTurn);
 
 
-/* GLOBAL VARIABLES GO HERE */
+/* GLOBAL VARIABLE GOES HERE */
 
 var currentGame;
 
@@ -36,10 +36,22 @@ function takeTurn(e) {
   handleBoardReset();
 }
 
+function addBannerAnimation() {
+  playerTurnHeader.classList.add('turn-animation')
+}
+
+function removeBannerAnimation() {
+  playerTurnHeader.classList.remove('turn-animation')
+}
+
+
+
+
+
 function handleBoardReset() {
   if (currentGame.gameWon || currentGame.gameCompleted) {
     gameBoard.removeEventListener('click', takeTurn)
-    setTimeout(resetBoardView, 6000);
+    setTimeout(resetBoardView, 5000);
   }
 }
 
@@ -91,6 +103,8 @@ function alertWinner() {
   if (currentGame.gameWon) {
     playerTurnHeader.innerText = `woo! ${currentGame.winnerOfLastGame.name} won!`
   } 
+  addBannerAnimation()
+  setTimeout(removeBannerAnimation, 600)
 }
 
 function alertDraw() {
@@ -107,10 +121,10 @@ function enableGameBoard() {
 
 
 /* 
-TO DO: need to find way to disable board after a win (in time before the
-board resets) -> maybe a disable board function that resetBoardView can go inside of?
-Then only the reset board view needs to be on a timer, the disable function can
-run first.
-
+Priorities:
+- bug squashing!
+- quick animation???? If not quick, skip
+- responsive design across mobile, tablet, and desktop
+- local storage
 
 */
