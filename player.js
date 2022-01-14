@@ -5,7 +5,7 @@ class Player {
     this.token = token;
     this.wins = 0;
   }
-}
+};
 
 
 

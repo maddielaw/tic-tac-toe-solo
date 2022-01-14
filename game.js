@@ -68,12 +68,6 @@ class Game {
                     "", "", ""];
   };
 };
-
-
-
-
-
-
 /* 
 
 ~~~~ TO DO: need to put resetGameBoard on a timer
