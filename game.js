@@ -9,6 +9,7 @@ class Game {
     this.currentPlayer = this.player1;
     this.previousPlayer = null;
     this.winnerOfLastGame = null;
+    this.gameCompleted = false;
   };
   playTurn(position) {
     if (this.board[position] === "") {
@@ -25,14 +26,16 @@ class Game {
       this.currentPlayer = this.player1;
     }
   };
-  checkWinningPlayer() {
+  handleWinningPlayer() {
     if (this.currentPlayer === this.player1) {
+      this.gameCompleted = true;
       this.currentPlayer.wins ++;
       this.winnerOfLastGame = this.player1;
       this.resetGameBoard();
       console.log('player1 -X wins')
       return "player1 -X wins!"
     } else if (this.currentPlayer === this.player2) {
+      this.gameCompleted = true;
       this.currentPlayer.wins ++;
       this.winnerOfLastGame = this.player2;
       this.resetGameBoard();
@@ -46,11 +49,12 @@ class Game {
       var win = winningCombos[i];
       if (this.board[win[0]] === this.board[win[1]] && this.board[win[0]] === this.board[win[2]] && 
           this.board[win[0]] != "" && this.board[win[1]] != "" && this.board[win[2]] != "") {
-            return this.checkWinningPlayer();
+            return this.handleWinningPlayer();
         }
       }
     if (!this.board.includes("")) {
       console.log('Draw!')
+      this.gameCompleted = true;
       this.resetGameBoard();
     } else {
       this.switchPlayers();

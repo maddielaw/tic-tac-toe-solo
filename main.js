@@ -33,20 +33,24 @@ cell, and will update the board & then run check for winner
 3. the argument 
 */
 function takeTurn(e) {
+  setTimeout(resetBoardView, 7000)
   if (currentGame.board[e.target.id] === "") {
     createPlayerToken(e);
     currentGame.playTurn(e.target.id);
     updatePlayerBanner();
     updatePlayerWins();
-  }
+  };
 }
 
 
-// need function that will reset the board view innerHTML after a win or draw
+
+function dummyFunction() {
+  console.log("I work!")
+}
+
 function resetBoardView() {
-  for (var i = 0; i < currentGame.board; i ++) {
-    if (currentGame.board[i] === "") {
-      gameBoard.innerHTML `
+    if (currentGame.gameCompleted) {
+      gameBoard.innerHTML = `
       <div class="game-board-boxes" id="0"></div>
       <div class="game-board-boxes" id="1"></div>
       <div class="game-board-boxes" id="2"></div>
@@ -57,7 +61,7 @@ function resetBoardView() {
       <div class="game-board-boxes" id="7"></div>
       <div class="game-board-boxes" id="8"></div>`
     }
-  }
+    currentGame.gameCompleted = false;
 }
 
 // will actually update the innerHTML to add the correct player icon to board
