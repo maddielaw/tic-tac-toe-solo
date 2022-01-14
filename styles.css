@@ -69,6 +69,13 @@ main {
   }
 }
 
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .main-header {
+    font-size: 25px;
+  }
+}
+
 .main-player-turn-header {
   color: #FFE1A8;
   font-size: 30px;
@@ -82,7 +89,14 @@ main {
 /* for tablets */
 @media screen and (max-width: 930px) {
   .main-player-turn-header {
-    font-size: 20px;
+    font-size: 25px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .main-player-turn-header {
+    font-size: 15px;
   }
 }
 
@@ -186,6 +200,15 @@ main {
   }
 }
 
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .player-header,
+  .left-player-wins,
+  .right-player-wins {
+    font-size: 20px;
+  }
+}
+
 /* ~~~~~ RULES FOR GAME BOARD ~~~~~~~ */
 
 .game-board-container {
@@ -213,6 +236,14 @@ main {
   }
 }
 
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .game-board-container {
+    width: 270px;
+    height: 270px;
+  }
+}
+
 .game-board-boxes {
   display: flex;
   justify-content: center;
@@ -237,6 +268,14 @@ main {
   .game-board-boxes {
     width: 111px;
     height: 111px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .game-board-boxes {
+    width: 88px;
+    height: 88px;
   }
 }
 
