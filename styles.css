@@ -18,6 +18,13 @@ body {
   font-family: 'Quicksand';
 }
 
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  body {
+    flex-direction: column;
+  }
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -27,10 +34,46 @@ main {
   background-color: #723D46;
 }
 
+/* for tablets */
+@media screen and (max-width: 728px) {
+  main {
+    width: 70%;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  main {
+    width: 100%;
+    height: 80%;
+  }
+}
+
 .main-header {
   color: #FFE1A8;
   font-size: 55px;
   font-weight: bold;
+}
+
+/* for laptops & larger laptops */
+@media screen and (max-width: 1199px) {
+  .main-header {
+    font-size: 40px;
+  }
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .main-header {
+    font-size: 30px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .main-header {
+    font-size: 25px;
+  }
 }
 
 .main-player-turn-header {
@@ -43,6 +86,20 @@ main {
     transform: scale(1.3);
 }
 
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .main-player-turn-header {
+    font-size: 25px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .main-player-turn-header {
+    font-size: 15px;
+  }
+}
+
 /* ~~~~~ RULES FOR LEFT AND RIGHT NAVS ~~~~~~~ */
 
 .left-player-nav,
@@ -53,6 +110,16 @@ main {
   align-items: center;
   width: 25%;
   background: linear-gradient(#C9CBA3, #94af89)
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .left-player-nav,
+  .right-player-nav {
+    flex-direction: row;
+    width: 100%;
+    height: 20%;
+  }
 }
 
 .left-player-token-container,
@@ -68,10 +135,53 @@ main {
   border-radius: 15px;
 }
 
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .left-player-token-container,
+  .right-player-token-container {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* for tablets */
+@media screen and (max-width: 728px) {
+  .left-player-token-container,
+  .right-player-token-container {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .left-player-token-container,
+  .right-player-token-container {
+    margin-bottom: 0px;
+    height: 70%;
+  }
+}
+
 .fa-tree,
 .fa-campground {
   font-size: 100px;
   color: #C9CBA3;
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .fa-tree,
+  .fa-campground {
+    font-size: 70px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .fa-tree,
+  .fa-campground {
+    font-size: 60px;
+  }
 }
 
 .player-header,
@@ -79,6 +189,24 @@ main {
 .right-player-wins {
   color: #472D30;
   font-size: 30px;
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .player-header,
+  .left-player-wins,
+  .right-player-wins {
+    font-size: 25px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .player-header,
+  .left-player-wins,
+  .right-player-wins {
+    font-size: 20px;
+  }
 }
 
 /* ~~~~~ RULES FOR GAME BOARD ~~~~~~~ */
@@ -92,6 +220,30 @@ main {
   border-radius: 15px;
 }
 
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .game-board-container {
+    width: 354px;
+    height: 354px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .game-board-container {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .game-board-container {
+    width: 270px;
+    height: 270px;
+  }
+}
+
 .game-board-boxes {
   display: flex;
   justify-content: center;
@@ -101,6 +253,30 @@ main {
   background-color: #E26D5C;
   border: 1px solid #FFE1A8;
   border-radius: 15px;
+}
+
+/* for tablets */
+@media screen and (max-width: 930px) {
+  .game-board-boxes {
+    width: 116px;
+    height: 116px;
+  }
+}
+
+/* for tablets & large smartphones */
+@media screen and (max-width: 630px) {
+  .game-board-boxes {
+    width: 111px;
+    height: 111px;
+  }
+}
+
+/* for small mobile */
+@media screen and (max-width: 345px) {
+  .game-board-boxes {
+    width: 88px;
+    height: 88px;
+  }
 }
 
 
