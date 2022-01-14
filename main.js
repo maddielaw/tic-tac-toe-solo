@@ -12,8 +12,6 @@ window.addEventListener('load', loadNewGame);
 gameBoard.addEventListener('click', takeTurn);
 
 
-
-
 /* GLOBAL VARIABLES GO HERE */
 
 var currentGame;
@@ -25,31 +23,19 @@ function loadNewGame() {
 
 }
 
-
-/* 
-1. will run addToken & updatePlayerBanner to complete a player turn
-2. need to call currentGame.playTurn() which will only allow click on empty
-cell, and will update the board & then run check for winner
-3. the argument 
-*/
 function takeTurn(e) {
-  setTimeout(resetBoardView, 7000)
   if (currentGame.board[e.target.id] === "") {
     createPlayerToken(e);
     currentGame.playTurn(e.target.id);
-    updatePlayerBanner();
     updatePlayerWins();
+    updatePlayerBanner();
   };
-}
-
-
-
-function dummyFunction() {
-  console.log("I work!")
+  alertWinner()
+  setTimeout(resetBoardView, 9000)
 }
 
 function resetBoardView() {
-    if (currentGame.gameCompleted) {
+    if (currentGame.gameWon || currentGame.gameCompleted) {
       gameBoard.innerHTML = `
       <div class="game-board-boxes" id="0"></div>
       <div class="game-board-boxes" id="1"></div>
@@ -61,10 +47,11 @@ function resetBoardView() {
       <div class="game-board-boxes" id="7"></div>
       <div class="game-board-boxes" id="8"></div>`
     }
+    updatePlayerBanner();
     currentGame.gameCompleted = false;
+    currentGame.gameWon = false;
 }
 
-// will actually update the innerHTML to add the correct player icon to board
 function createPlayerToken(e) {
   if (currentGame.currentPlayer === currentGame.player1) {
     e.target.innerHTML = `
@@ -79,8 +66,6 @@ function createPlayerToken(e) {
   }
 }
 
-
-// updates the top banner with correct player turn
 function updatePlayerBanner() {
   if (currentGame.currentPlayer === currentGame.player1) {
     playerTurnHeader.innerText = "it's player 1's turn!"
@@ -89,32 +74,29 @@ function updatePlayerBanner() {
   }
 };
 
-// updates the player win count - > will need to go inside function that handles winner/endgame
 function updatePlayerWins() {
     player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
     player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
-  }
+}
 
+// needs to update top banner innerText to be winner message for a period
+function alertWinner() {
+  if (currentGame.gameWon) {
+    playerTurnHeader.innerText = `Woo! ${currentGame.winnerOfLastGame} won!`
+  } 
+}
 
-// needs to call currentGame.checkForWinOrDraw()
-function handleWinOrDraw() {
+//needs to update top banner innerText to show draw message
+function alertDraw() {
+
 }
 
 
-
-/* TO DISPLAY THE ICON IN CORRECT SQUARE
-1. Need to create an event listener on the game board container 
-2. Need to match the e.target to the particular cell div and update
-the innerText of the div to match the token of the currentPlayer
-3. Need to have the currentGame.board data updated at the correct
-index to match the visual
-
-
-currentGame.playTurn(e.target)
-
-
-
-
+/* 
+TO DO: need to find way to disable board after a win (in time before the
+board resets) -> maybe a disable board function that resetBoardView can go inside of?
+Then only the reset board view needs to be on a timer, the disable function can
+run first.
 
 
 */

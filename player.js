@@ -1,8 +1,9 @@
 class Player {
-  constructor(token) {
+  constructor(name, token) {
+    this.name = name;
     this.id = Date.now();
     this.token = token;
-    this.wins = [];
+    this.wins = 0;
   }
 }
 

@@ -1,8 +1,8 @@
 
 class Game {
   constructor() {
-    this.player1 = new Player('<i class="fas fa-campground"></i>');
-    this.player2 = new Player('<i class="fas fa-tree"></i>');
+    this.player1 = new Player("player 1", '<i class="fas fa-campground"></i>');
+    this.player2 = new Player("player 2", '<i class="fas fa-tree"></i>');
     this.board = ["", "", "",
                   "", "", "",
                   "", "", ""];
@@ -10,6 +10,7 @@ class Game {
     this.previousPlayer = null;
     this.winnerOfLastGame = null;
     this.gameCompleted = false;
+    this.gameWon = false;
   };
   playTurn(position) {
     if (this.board[position] === "") {
@@ -28,14 +29,14 @@ class Game {
   };
   handleWinningPlayer() {
     if (this.currentPlayer === this.player1) {
-      this.gameCompleted = true;
+      this.gameWon = true;
       this.currentPlayer.wins ++;
       this.winnerOfLastGame = this.player1;
       this.resetGameBoard();
       console.log('player1 -X wins')
       return "player1 -X wins!"
     } else if (this.currentPlayer === this.player2) {
-      this.gameCompleted = true;
+      this.gameWon = true;
       this.currentPlayer.wins ++;
       this.winnerOfLastGame = this.player2;
       this.resetGameBoard();
@@ -58,7 +59,6 @@ class Game {
       this.resetGameBoard();
     } else {
       this.switchPlayers();
-      return "No win yet! Keep playing!"
     }
   };
   resetGameBoard() {
