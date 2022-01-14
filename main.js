@@ -30,8 +30,9 @@ function takeTurn(e) {
     updatePlayerWins();
     updatePlayerBanner();
   };
-  alertWinner()
-  setTimeout(resetBoardView, 9000)
+  alertWinner();
+  alertDraw();
+  setTimeout(resetBoardView, 10000)
 }
 
 function resetBoardView() {
@@ -82,13 +83,15 @@ function updatePlayerWins() {
 // needs to update top banner innerText to be winner message for a period
 function alertWinner() {
   if (currentGame.gameWon) {
-    playerTurnHeader.innerText = `Woo! ${currentGame.winnerOfLastGame} won!`
+    playerTurnHeader.innerText = `woo! ${currentGame.winnerOfLastGame.name} won!`
   } 
 }
 
 //needs to update top banner innerText to show draw message
 function alertDraw() {
-
+  if (currentGame.gameCompleted) {
+    playerTurnHeader.innerText = `bummer! looks like a draw!`
+  }
 }
 
 
