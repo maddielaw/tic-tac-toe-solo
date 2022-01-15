@@ -89,7 +89,7 @@ function alertWinner() {
     playerTurnHeader.innerText = `woo! ${currentGame.winnerOfLastGame.name} won!`
   };
   addBannerAnimation()
-  setTimeout(removeBannerAnimation, 600)
+  setTimeout(removeBannerAnimation, 400)
 };
 
 function alertDraw() {

@@ -79,7 +79,7 @@ main {
 .main-player-turn-header {
   color: #FFE1A8;
   font-size: 30px;
-  transition: .7s ease;
+  transition: .4s ease;
 }
 
 .turn-animation {
