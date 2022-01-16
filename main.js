@@ -21,9 +21,8 @@ function loadNewGame() {
 };
 
 function takeTurn(e) {
-  enableGameBoard()
   if (currentGame.board[e.target.id] === "") {
-    createPlayerToken(e);
+    placePlayerToken(e);
     currentGame.playTurn(e.target.id);
     updatePlayerWins();
     updatePlayerBanner();
@@ -35,13 +34,13 @@ function takeTurn(e) {
 
 function handleBoardReset() {
   if (currentGame.gameWon || currentGame.gameCompleted) {
-    gameBoard.removeEventListener('click', takeTurn)
+    gameBoard.removeEventListener('click', takeTurn);
     setTimeout(resetBoardView, 4000);
   };
 };
 
 function resetBoardView() {
-      gameBoard.innerHTML = `
+    gameBoard.innerHTML = `
       <div class="game-board-boxes" id="0"></div>
       <div class="game-board-boxes" id="1"></div>
       <div class="game-board-boxes" id="2"></div>
@@ -57,7 +56,7 @@ function resetBoardView() {
     currentGame.gameWon = false;
 };
 
-function createPlayerToken(e) {
+function placePlayerToken(e) {
   if (currentGame.currentPlayer === currentGame.player1) {
     e.target.innerHTML = `
     <div class="game-board-boxes" id="${e.target}">
@@ -80,26 +79,22 @@ function updatePlayerBanner() {
 };
 
 function updatePlayerWins() {
-    player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
-    player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
+  player1WinCounter.innerText = `${currentGame.player1.wins} wins`;
+  player2WinCounter.innerText = `${currentGame.player2.wins} wins`;
 };
 
 function alertWinner() {
   if (currentGame.gameWon) {
     playerTurnHeader.innerText = `woo! ${currentGame.winnerOfLastGame.name} won!`
   };
-  addBannerAnimation()
-  setTimeout(removeBannerAnimation, 400)
+  addBannerAnimation();
+  setTimeout(removeBannerAnimation, 400);
 };
 
 function alertDraw() {
   if (currentGame.gameCompleted) {
     playerTurnHeader.innerText = `bummer! looks like a draw!`
   };
-};
-
-function enableGameBoard() {
-  gameBoard.disabled = false;
 };
 
 function addBannerAnimation() {
