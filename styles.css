@@ -1,6 +1,7 @@
 
+/* ~~~~~~~ GLOBAL RULES ~~~~~~~ */
+
 * {
-  /* border: 1px solid green; */
   padding: 0px;
   margin: 0px;
 }
@@ -11,14 +12,14 @@ body {
   width: 100%;
 }
 
-/* ~~~~~ RULES FOR MAIN BODY OF PAGE ~~~~~~~ */
+/* ~~~~~~~ RULES FOR MAIN BODY OF PAGE ~~~~~~~ */
 
 body {
   display: flex;
   font-family: 'Quicksand';
 }
 
-/* for tablets & large smartphones */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 630px) {
   body {
     flex-direction: column;
@@ -34,14 +35,13 @@ main {
   background-color: #723D46;
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 728px) {
   main {
     width: 70%;
   }
 }
 
-/* for tablets & large smartphones */
 @media screen and (max-width: 630px) {
   main {
     width: 100%;
@@ -55,21 +55,21 @@ main {
   font-weight: bold;
 }
 
-/* for laptops & larger laptops */
+/* RESPONSIVE SIZING FOR LAPTOPS */
 @media screen and (max-width: 1199px) {
   .main-header {
     font-size: 40px;
   }
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .main-header {
     font-size: 30px;
   }
 }
 
-/* for small mobile */
+/* RESPONSIVE SIZING FOR S MOBILE */
 @media screen and (max-width: 345px) {
   .main-header {
     font-size: 25px;
@@ -86,21 +86,21 @@ main {
     transform: scale(1.3);
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .main-player-turn-header {
     font-size: 25px;
   }
 }
 
-/* for small mobile */
+/* RESPONSIVE SIZING FOR S MOBILE */
 @media screen and (max-width: 345px) {
   .main-player-turn-header {
     font-size: 15px;
   }
 }
 
-/* ~~~~~ RULES FOR LEFT AND RIGHT NAVS ~~~~~~~ */
+/* ~~~~~~~ RULES FOR LEFT AND RIGHT NAVS ~~~~~~~ */
 
 .left-player-nav,
 .right-player-nav {
@@ -109,10 +109,10 @@ main {
   justify-content: space-around;
   align-items: center;
   width: 25%;
-  background: linear-gradient(#C9CBA3, #94af89)
+  background: linear-gradient(#C9CBA3, #78946d)
 }
 
-/* for tablets & large smartphones */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 630px) {
   .left-player-nav,
   .right-player-nav {
@@ -135,7 +135,7 @@ main {
   border-radius: 15px;
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .left-player-token-container,
   .right-player-token-container {
@@ -144,7 +144,6 @@ main {
   }
 }
 
-/* for tablets */
 @media screen and (max-width: 728px) {
   .left-player-token-container,
   .right-player-token-container {
@@ -153,7 +152,6 @@ main {
   }
 }
 
-/* for tablets & large smartphones */
 @media screen and (max-width: 630px) {
   .left-player-token-container,
   .right-player-token-container {
@@ -168,7 +166,7 @@ main {
   color: #C9CBA3;
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .fa-tree,
   .fa-campground {
@@ -176,7 +174,6 @@ main {
   }
 }
 
-/* for tablets & large smartphones */
 @media screen and (max-width: 630px) {
   .fa-tree,
   .fa-campground {
@@ -191,7 +188,7 @@ main {
   font-size: 30px;
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .player-header,
   .left-player-wins,
@@ -200,7 +197,7 @@ main {
   }
 }
 
-/* for small mobile */
+/* RESPONSIVE SIZING FOR S MOBILE */
 @media screen and (max-width: 345px) {
   .player-header,
   .left-player-wins,
@@ -209,7 +206,7 @@ main {
   }
 }
 
-/* ~~~~~ RULES FOR GAME BOARD ~~~~~~~ */
+/* ~~~~~~~ RULES FOR GAME BOARD ~~~~~~~ */
 
 .game-board-container {
   display: flex;
@@ -220,7 +217,7 @@ main {
   border-radius: 15px;
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .game-board-container {
     width: 354px;
@@ -228,7 +225,6 @@ main {
   }
 }
 
-/* for tablets & large smartphones */
 @media screen and (max-width: 630px) {
   .game-board-container {
     width: 340px;
@@ -236,7 +232,7 @@ main {
   }
 }
 
-/* for small mobile */
+/* RESPONSIVE SIZING FOR S MOBILE */
 @media screen and (max-width: 345px) {
   .game-board-container {
     width: 270px;
@@ -255,7 +251,7 @@ main {
   border-radius: 15px;
 }
 
-/* for tablets */
+/* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
   .game-board-boxes {
     width: 116px;
@@ -263,7 +259,6 @@ main {
   }
 }
 
-/* for tablets & large smartphones */
 @media screen and (max-width: 630px) {
   .game-board-boxes {
     width: 111px;
@@ -271,7 +266,7 @@ main {
   }
 }
 
-/* for small mobile */
+/* RESPONSIVE SIZING FOR S MOBILE */
 @media screen and (max-width: 345px) {
   .game-board-boxes {
     width: 88px;
