@@ -1,8 +1,8 @@
 
 class Game {
   constructor() {
-    this.player1 = new Player("player 1", '<i class="fas fa-campground"></i>');
-    this.player2 = new Player("player 2", '<i class="fas fa-tree"></i>');
+    this.player1 = new Player("player 1", 'assets/campground.svg');
+    this.player2 = new Player("player 2", 'assets/tree.svg');
     this.board = ["", "", "",
                   "", "", "",
                   "", "", ""];

@@ -60,12 +60,12 @@ function placePlayerToken(e) {
   if (currentGame.currentPlayer === currentGame.player1) {
     e.target.innerHTML = `
     <div class="game-board-boxes" id="${e.target}">
-      <i class="fas fa-campground"></i>
+      <img class="fas fa-campground" src="assets/campground.svg"/>
     </div>`
   } else if (currentGame.currentPlayer === currentGame.player2) {
     e.target.innerHTML = `
     <div class="game-board-boxes" id="${e.target}">
-      <i class="fas fa-tree"></i>
+      <img class="fas fa-tree" src="assets/tree.svg"/>
     </div>`
   };
 };
