@@ -162,9 +162,9 @@ main {
 
 .fa-tree,
 .fa-campground {
-  font-size: 100px;
-  color: #C9CBA3;
+  height: 65%;
 }
+
 
 /* RESPONSIVE SIZING FOR TABLETS */
 @media screen and (max-width: 930px) {
