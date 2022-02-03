@@ -1,4 +1,5 @@
-# 🌲 Campground Tic-Tac-Toe
+# Campground Tic-Tac-Toe
+## Play my game 👉🏻 [here!]( https://maddielaw.github.io/tic-tac-toe-solo/)
 
 ![Screen Shot 2022-01-15 at 4 02 48 PM](https://user-images.githubusercontent.com/92049763/149640355-aa415e24-0d0d-41ec-9fb3-07b976f27767.png)
 
@@ -6,22 +7,18 @@
 My project is a camping-themed game of tic-tac-toe! Two users can play against one another and the application will keep track of their wins.
 
 ## Technology Used
-JavaScript
+- JavaScript
 
-HTML
+- HTML
 
-CSS
-
-## Installation
-Users will be able to access my site via the deployed project link -- coming soon!
+- CSS
 
 ## Features
-The main feature of my site is being able to play a full game of tic-tac-toe:
-- The site will track possible winning and draw conditions and alert players when one has won or when a draw has been reached.
+
+- The game will track possible winning and draw conditions and alert players when one has won or when a draw has been reached.
 - After a win or draw the board will automatically reset after a period of time.
 - The win counter for each side will track the number of wins each player has.
-
-Additionally, the site is responsive across desktop, tablet, and mobile allowing users to play on the go (or while out camping)!
+- The game is responsive across desktop, tablet, and mobile allowing users to play on the go (or while out camping)!
 
 ## To Use
 
